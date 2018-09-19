@@ -1,0 +1,921 @@
+{
+  "front-version": "2.103.2",
+  "version": 3,
+  "nodes": [
+    {
+      "type": "Project",
+      "description": "This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+      "id": "d1a4007d-54ef-4f25-a19d-0958260de583",
+      "importedFrom": "36719090-df53-4b32-8d6d-0c455cc78e8a",
+      "lastModified": "2018-09-18T12:53:52.223+02:00",
+      "name": "Petstore API",
+      "remoteModification": "2018-09-18T12:53:05.736+02:00"
+    },
+    {
+      "type": "Service",
+      "id": "1098a575-5c37-4772-982e-1b75f5c99fda",
+      "lastModified": "2018-09-18T09:54:57.988+02:00",
+      "name": "Pet",
+      "parentId": "d1a4007d-54ef-4f25-a19d-0958260de583"
+    },
+    {
+      "uriEditor": true,
+      "type": "Request",
+      "method": {
+        "link": "",
+        "name": "GET"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": [
+            {
+              "enabled": true,
+              "name": "tags",
+              "value": ""
+            }
+          ]
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/pet/findByTags"
+      },
+      "description": "Muliple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.",
+      "id": "80663ccb-77fa-4745-8d49-2dfd66b1c114",
+      "lastModified": "2018-09-18T09:54:57.989+02:00",
+      "name": "Finds Pets by tags",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Accept",
+          "value": "application/xml, application/json"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "bd5c4ba2-e027-435e-9c4b-a2e027735eb6"
+      },
+      "parentId": "1098a575-5c37-4772-982e-1b75f5c99fda"
+    },
+    {
+      "uriEditor": true,
+      "type": "Request",
+      "method": {
+        "link": "",
+        "name": "GET"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": [
+            {
+              "enabled": true,
+              "name": "status",
+              "value": "AVAILABLE"
+            }
+          ]
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/pet/findByStatus"
+      },
+      "description": "Multiple status values can be provided with comma separated strings",
+      "id": "c3ebddb5-6837-464a-a5a6-0ecd62f53e5a",
+      "lastModified": "2018-09-18T11:06:49.568+02:00",
+      "name": "Finds Pets by status",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "assertions": [
+        {
+          "comparison": "Equals",
+          "subject": "ResponseHeader",
+          "path": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "comparison": "Equals",
+          "subject": "ResponseStatus",
+          "path": "code",
+          "value": "200"
+        },
+        {
+          "comparison": "Exists",
+          "subject": "ResponseBody",
+          "path": "content",
+          "value": ""
+        },
+        {
+          "comparison": "LengthEqual",
+          "subject": "ResponseJsonBody",
+          "path": "$.",
+          "value": "13"
+        },
+        {
+          "comparison": "Equals",
+          "subject": "ResponseJsonBody",
+          "path": "$.name[0]",
+          "value": "yySDe"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "bd5c4ba2-e027-435e-9c4b-a2e027735eb6"
+      },
+      "parentId": "1098a575-5c37-4772-982e-1b75f5c99fda"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "",
+        "name": "PUT"
+      },
+      "body": {
+        "bodyType": "Text",
+        "textBody": ""
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/pet"
+      },
+      "description": "",
+      "id": "b5d1c452-155f-4f83-8764-d94995e2b5f8",
+      "lastModified": "2018-09-18T09:54:57.990+02:00",
+      "name": "Update an existing pet",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/xml"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "bd5c4ba2-e027-435e-9c4b-a2e027735eb6"
+      },
+      "parentId": "1098a575-5c37-4772-982e-1b75f5c99fda"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "",
+        "name": "POST"
+      },
+      "body": {
+        "bodyType": "Text",
+        "textBody": "{\n\"name\": \"Micky Mouse\",\n\"photoUrls\":[],\n\"tags\":[],\n\"status\": \"AVAILABLE\"\n}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/pet"
+      },
+      "description": "",
+      "id": "cb36718d-7d9b-4a88-a5cd-34595d1d0606",
+      "lastModified": "2018-09-18T10:12:46.092+02:00",
+      "name": "Add a new pet to the store",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/xml"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "bd5c4ba2-e027-435e-9c4b-a2e027735eb6"
+      },
+      "parentId": "1098a575-5c37-4772-982e-1b75f5c99fda"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "",
+        "name": "GET"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "petstore.swagger.io",
+        "path": "/v2/pet/6783583226397184851"
+      },
+      "description": "Returns a single pet",
+      "id": "0bf78a00-9739-405a-b830-9be0c8491a4e",
+      "lastModified": "2018-09-18T11:06:09.504+02:00",
+      "name": "Find pet by ID",
+      "headers": [
+        {
+          "name": "api_key",
+          "value": ""
+        },
+        {
+          "enabled": true,
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "bd5c4ba2-e027-435e-9c4b-a2e027735eb6"
+      },
+      "parentId": "1098a575-5c37-4772-982e-1b75f5c99fda"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "encoding": "application/x-www-form-urlencoded",
+          "items": [
+            {
+              "type": "Text",
+              "name": "name",
+              "value": ""
+            },
+            {
+              "type": "Text",
+              "name": "status",
+              "value": ""
+            }
+          ]
+        },
+        "bodyType": "Form"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/pet/{petId}"
+      },
+      "description": "",
+      "id": "b1a6d2cb-3e47-4976-b921-6fba0ffa3854",
+      "lastModified": "2018-09-18T09:54:57.990+02:00",
+      "name": "Updates a pet in the store with form data",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/x-www-form-urlencoded"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "bd5c4ba2-e027-435e-9c4b-a2e027735eb6"
+      },
+      "parentId": "1098a575-5c37-4772-982e-1b75f5c99fda"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "",
+        "name": "DELETE"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/pet/{petId}"
+      },
+      "description": "",
+      "id": "8afd0811-618c-4373-8100-9e344fd7d15e",
+      "lastModified": "2018-09-18T09:54:57.990+02:00",
+      "name": "Deletes a pet",
+      "headers": [
+        {
+          "name": "api_key",
+          "value": ""
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "bd5c4ba2-e027-435e-9c4b-a2e027735eb6"
+      },
+      "parentId": "1098a575-5c37-4772-982e-1b75f5c99fda"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "encoding": "multipart/form-data",
+          "items": [
+            {
+              "type": "File",
+              "name": "file"
+            },
+            {
+              "type": "Text",
+              "name": "additionalMetadata",
+              "value": ""
+            }
+          ]
+        },
+        "bodyType": "Form"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/pet/{petId}/uploadImage"
+      },
+      "description": "",
+      "id": "b1a09f8f-94e7-4f0b-ac68-f53458695448",
+      "lastModified": "2018-09-18T09:54:57.990+02:00",
+      "name": "uploads an image",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "multipart/form-data"
+        },
+        {
+          "enabled": true,
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "bd5c4ba2-e027-435e-9c4b-a2e027735eb6"
+      },
+      "parentId": "1098a575-5c37-4772-982e-1b75f5c99fda"
+    },
+    {
+      "type": "Service",
+      "id": "c310d771-5db8-4744-b670-706416fc3f0b",
+      "lastModified": "2018-09-18T09:54:57.990+02:00",
+      "name": "User",
+      "parentId": "d1a4007d-54ef-4f25-a19d-0958260de583"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "",
+        "name": "POST"
+      },
+      "body": {
+        "bodyType": "Text",
+        "textBody": ""
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/user"
+      },
+      "description": "This can only be done by the logged in user.",
+      "id": "10284c44-c255-4f47-98e3-426215e63a16",
+      "lastModified": "2018-09-18T09:54:57.990+02:00",
+      "name": "Create user",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "parentId": "c310d771-5db8-4744-b670-706416fc3f0b"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "",
+        "name": "POST"
+      },
+      "body": {
+        "bodyType": "Text",
+        "textBody": ""
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/user/createWithArray"
+      },
+      "description": "",
+      "id": "ef1de04e-8664-4643-babe-79248c484e62",
+      "lastModified": "2018-09-18T09:54:57.990+02:00",
+      "name": "Creates list of users with given input array",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "parentId": "c310d771-5db8-4744-b670-706416fc3f0b"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "",
+        "name": "POST"
+      },
+      "body": {
+        "bodyType": "Text",
+        "textBody": ""
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/user/createWithList"
+      },
+      "description": "",
+      "id": "fa0a5128-2c5b-433e-bcbf-a73f5f501286",
+      "lastModified": "2018-09-18T09:54:57.990+02:00",
+      "name": "Creates list of users with given input array (1)",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "parentId": "c310d771-5db8-4744-b670-706416fc3f0b"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "",
+        "name": "GET"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/user/{username}"
+      },
+      "description": "",
+      "id": "5b341abb-461f-4314-9992-9303f60c2228",
+      "lastModified": "2018-09-18T09:54:57.991+02:00",
+      "name": "Get user by user name",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Accept",
+          "value": "application/xml, application/json"
+        }
+      ],
+      "parentId": "c310d771-5db8-4744-b670-706416fc3f0b"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "",
+        "name": "PUT"
+      },
+      "body": {
+        "bodyType": "Text",
+        "textBody": ""
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/user/{username}"
+      },
+      "description": "This can only be done by the logged in user.",
+      "id": "a4da5d80-8287-4d19-ac44-84fea1cf0881",
+      "lastModified": "2018-09-18T09:54:57.991+02:00",
+      "name": "Updated user",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "parentId": "c310d771-5db8-4744-b670-706416fc3f0b"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "",
+        "name": "DELETE"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/user/{username}"
+      },
+      "description": "This can only be done by the logged in user.",
+      "id": "bca7fbda-d1f5-4ac0-b6db-89afbc9f7ed6",
+      "lastModified": "2018-09-18T09:54:57.991+02:00",
+      "name": "Delete user",
+      "headers": [],
+      "parentId": "c310d771-5db8-4744-b670-706416fc3f0b"
+    },
+    {
+      "uriEditor": true,
+      "type": "Request",
+      "method": {
+        "link": "",
+        "name": "GET"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": [
+            {
+              "enabled": true,
+              "name": "password",
+              "value": ""
+            },
+            {
+              "enabled": true,
+              "name": "username",
+              "value": ""
+            }
+          ]
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/user/login"
+      },
+      "description": "",
+      "id": "51c6eb2d-b527-426d-9778-767db91ceed3",
+      "lastModified": "2018-09-18T09:54:57.991+02:00",
+      "name": "Logs user into the system",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Accept",
+          "value": "application/xml, application/json"
+        }
+      ],
+      "parentId": "c310d771-5db8-4744-b670-706416fc3f0b"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "",
+        "name": "GET"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/user/logout"
+      },
+      "id": "5e40fcb3-6f56-4be9-ba29-c1337b12aba3",
+      "lastModified": "2018-09-18T09:54:57.991+02:00",
+      "name": "Logs out current logged in user session",
+      "headers": [],
+      "parentId": "c310d771-5db8-4744-b670-706416fc3f0b"
+    },
+    {
+      "type": "Service",
+      "id": "c22d3836-e867-4aba-b32d-d3b8fb8994e0",
+      "lastModified": "2018-09-18T09:54:57.991+02:00",
+      "name": "Store",
+      "parentId": "d1a4007d-54ef-4f25-a19d-0958260de583"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "",
+        "name": "POST"
+      },
+      "body": {
+        "bodyType": "Text",
+        "textBody": ""
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/store/order"
+      },
+      "description": "",
+      "id": "7e9985be-a68d-4092-84fe-4f6d81085a50",
+      "lastModified": "2018-09-18T09:54:57.993+02:00",
+      "name": "Place an order for a pet",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "enabled": true,
+          "name": "Accept",
+          "value": "application/xml, application/json"
+        }
+      ],
+      "parentId": "c22d3836-e867-4aba-b32d-d3b8fb8994e0"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "",
+        "name": "GET"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/store/order/{orderId}"
+      },
+      "description": "For valid response try integer IDs with value >= 1 and <= 10. Other values will generated exceptions",
+      "id": "0c423ed8-c9d2-4373-9903-82fa16817b83",
+      "lastModified": "2018-09-18T09:54:57.993+02:00",
+      "name": "Find purchase order by ID",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Accept",
+          "value": "application/xml, application/json"
+        }
+      ],
+      "parentId": "c22d3836-e867-4aba-b32d-d3b8fb8994e0"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "",
+        "name": "DELETE"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/store/order/{orderId}"
+      },
+      "description": "For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors",
+      "id": "bcf6f80f-5d17-485d-baf6-d0e62727a832",
+      "lastModified": "2018-09-18T09:54:57.993+02:00",
+      "name": "Delete purchase order by ID",
+      "headers": [],
+      "parentId": "c22d3836-e867-4aba-b32d-d3b8fb8994e0"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "",
+        "name": "GET"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/store/inventory"
+      },
+      "description": "Returns a map of status codes to quantities",
+      "id": "b852c84c-77fe-44e9-92e7-29be289fe413",
+      "lastModified": "2018-09-18T09:54:57.993+02:00",
+      "name": "Returns pet inventories by status",
+      "headers": [
+        {
+          "name": "api_key",
+          "value": ""
+        },
+        {
+          "enabled": true,
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "parentId": "c22d3836-e867-4aba-b32d-d3b8fb8994e0"
+    },
+    {
+      "type": "Scenario",
+      "description": "",
+      "id": "877b1a7d-e289-4d77-89a9-2ff8bd0694ae",
+      "lastModified": "2018-09-18T12:53:52.208+02:00",
+      "name": "Create and Read",
+      "requestOrder": [
+        "Add a new pet to the store",
+        "Find pet by ID"
+      ],
+      "parentId": "d1a4007d-54ef-4f25-a19d-0958260de583"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "",
+        "name": "POST"
+      },
+      "body": {
+        "bodyType": "Text",
+        "textBody": "{\n\"name\": \"Micky Mouse\",\n\"photoUrls\":[],\n\"tags\":[],\n\"status\": \"AVAILABLE\"\n}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "path": "petstore.swagger.io/v2/pet"
+      },
+      "description": "",
+      "id": "0ea21b85-d3c0-438f-8008-c4b989aab760",
+      "lastModified": "2018-09-18T10:18:37.019+02:00",
+      "name": "Add a new pet to the store",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/xml"
+        }
+      ],
+      "assertions": [],
+      "metaInfo": {
+        "ownerId": "bd5c4ba2-e027-435e-9c4b-a2e027735eb6"
+      },
+      "parentId": "877b1a7d-e289-4d77-89a9-2ff8bd0694ae"
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "",
+        "name": "GET"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "petstore.swagger.io",
+        "path": "/v2/pet/${\"Petstore API\".\"Create and Read\".\"Add a new pet to the store\".\"response\".\"body\".\"id\"}"
+      },
+      "description": "Returns a single pet",
+      "id": "5c6d220e-ffe2-4115-b844-8d94be8a255a",
+      "lastModified": "2018-09-18T12:53:52.208+02:00",
+      "name": "Find pet by ID",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {
+        "ownerId": "bd5c4ba2-e027-435e-9c4b-a2e027735eb6"
+      },
+      "parentId": "877b1a7d-e289-4d77-89a9-2ff8bd0694ae"
+    },
+    {
+      "type": "Context",
+      "id": "ca06937f-caff-484f-aa67-fd6fce94e66c",
+      "lastModified": "2018-09-19T10:10:12.987+02:00",
+      "name": "DEV",
+      "variables": [
+        {
+          "enabled": true,
+          "name": "hostname",
+          "value": "b0d04mx2.rz.ch"
+        }
+      ]
+    }
+  ]
+}
